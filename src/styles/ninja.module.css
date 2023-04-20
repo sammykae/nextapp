@@ -1,0 +1,15 @@
+.single {
+  background-color: #fff;
+  padding: 1px 16px;
+  display: block;
+  margin: 10px;
+  border-left: 8px solid transparent;
+  border-left: 8px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+.single:hover {
+  border-left: 8px solid #4979ff;
+  border-right: 8px solid #4979ff;
+}

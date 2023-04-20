@@ -1,0 +1,39 @@
+body {
+  background-color: whitesmoke;
+  width: 70%;
+  margin: auto;
+}
+.navbar {
+  display: flex;
+  padding: 10px 50px;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+.logo {
+  margin-right: auto;
+}
+.links {
+  display: flex;
+  column-gap: 30px;
+}
+.link {
+  text-decoration: none;
+  font-size: 20px;
+  color: coral;
+}
+.active {
+  color: rgb(244, 0, 0);
+}
+.footer {
+  display: block;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  margin-top: 30px;
+}
+.not-found {
+  text-align: center;
+}
+.back-home {
+  color: #4979ff;
+}
