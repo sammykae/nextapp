@@ -14,7 +14,7 @@ const ninja = ({ ninjas }) => {
         <meta property="og:title" content="Ninja" />
         <meta property="og:description" content="This is the Ninja page" />
         <meta property="og:image" content={"/logo.png"} />
-        <meta property="og:url" content={window?.location?.href} />
+
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Next app" />
       </Head>

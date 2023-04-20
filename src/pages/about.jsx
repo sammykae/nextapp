@@ -11,7 +11,7 @@ const About = () => {
         <meta property="og:title" content="About" />
         <meta property="og:description" content="This is the about page" />
         <meta property="og:image" content={"/logo.png"} />
-        <meta property="og:url" content={window?.location?.href} />
+
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Next app" />
       </Head>

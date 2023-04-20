@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/page.module.css";
 import Link from "next/link";
+
 export default function Home() {
   return (
     <>
@@ -12,7 +13,7 @@ export default function Home() {
         <meta property="og:title" content="Home" />
         <meta property="og:description" content="This is the Home page" />
         <meta property="og:image" content={"/logo.png"} />
-        <meta property="og:url" content={window?.location?.href} />
+
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Next app" />
       </Head>
