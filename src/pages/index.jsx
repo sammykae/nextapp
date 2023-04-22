@@ -1,8 +1,32 @@
 import Head from "next/head";
 import styles from "@/styles/page.module.css";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [voices, setVoices] = useState([]);
+  const [active, setActive] = useState(0);
+  const [utter, setUtter] = useState(
+    new SpeechSynthesisUtterance("Hello, this is the first voice.")
+  );
+  const synth1 = window.speechSynthesis;
+  useEffect(() => {
+    if ("speechSynthesis" in window) {
+      const voices = speechSynthesis.getVoices();
+
+      setVoices(
+        voices?.filter((v) => v?.lang === "en-US" || v?.lang === "en-GB")
+      );
+    } else {
+      console.log("The Web Speech API is not supported on this device.");
+    }
+  }, []);
+  console.log(voices);
+  console.log(active);
+  const handleSpeack = () => {
+    utter.voice = voices[active];
+    synth1.speak(utter);
+  };
   return (
     <>
       <Head>
@@ -13,7 +37,6 @@ export default function Home() {
         <meta property="og:title" content="Home" />
         <meta property="og:description" content="This is the Home page" />
         <meta property="og:image" content={"/logo.png"} />
-
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Next app" />
       </Head>
@@ -41,6 +64,18 @@ export default function Home() {
         <Link className={styles.btn} href={"ninja"}>
           Ninjas Page
         </Link>
+        <select onChange={(e) => setActive(e.target.value)}>
+          {voices?.map((v, i) => (
+            <>
+              <option key={i} value={i}>
+                Speech {i + 1}
+              </option>
+            </>
+          ))}
+        </select>
+        <br />
+        <br />
+        <button onClick={handleSpeack}>Speak</button>
       </div>
     </>
   );
