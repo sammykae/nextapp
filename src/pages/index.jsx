@@ -6,10 +6,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [voices, setVoices] = useState([]);
   const [active, setActive] = useState(0);
-  const [utter, setUtter] = useState(
-    new SpeechSynthesisUtterance("Hello, this is the first voice.")
-  );
-  const synth1 = window.speechSynthesis;
+  const [utter, setUtter] = useState("Hello, this is the first voice.");
   useEffect(() => {
     if ("speechSynthesis" in window) {
       const voices = speechSynthesis.getVoices();
@@ -21,11 +18,12 @@ export default function Home() {
       console.log("The Web Speech API is not supported on this device.");
     }
   }, []);
-  console.log(voices);
-  console.log(active);
+
   const handleSpeack = () => {
-    utter.voice = voices[active];
-    synth1.speak(utter);
+    const synth1 = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(utter);
+    utterance.voice = voices[active];
+    synth1.speak(utterance);
   };
   return (
     <>
