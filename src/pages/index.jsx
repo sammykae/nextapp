@@ -8,15 +8,20 @@ export default function Home() {
   const [active, setActive] = useState(0);
   const [utter, setUtter] = useState("Hello, this is the first voice.");
   useEffect(() => {
-    if ("speechSynthesis" in window) {
-      const voices = speechSynthesis.getVoices();
+    const synth = window.speechSynthesis;
+    const availableVoices = synth.getVoices();
+    setVoices(
+      availableVoices?.filter((v) => v?.lang === "en-US" || v?.lang === "en-GB")
+    );
 
-      setVoices(
-        voices?.filter((v) => v?.lang === "en-US" || v?.lang === "en-GB")
+    // Listen for changes to the available voices
+    synth.onvoiceschanged = () => {
+      const newVoices = synth.getVoices();
+      const dd = newVoices?.filter(
+        (v) => v?.lang === "en-US" || v?.lang === "en-GB"
       );
-    } else {
-      console.log("The Web Speech API is not supported on this device.");
-    }
+      setVoices(dd);
+    };
   }, []);
 
   const handleSpeack = () => {
