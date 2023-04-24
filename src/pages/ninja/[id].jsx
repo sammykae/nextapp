@@ -34,19 +34,19 @@ const NinjaDetails = ({ ninja }) => {
 
 export default NinjaDetails;
 
-export const getStaticPaths = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  const data = await res.json();
-  const paths = data?.map((d) => {
-    return { params: { id: d?.id?.toString() } };
-  });
-  return {
-    paths,
-    fallback: false,
-  };
-};
+// export const getStaticPaths = async () => {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/users");
+//   const data = await res.json();
+//   const paths = data?.map((d) => {
+//     return { params: { id: d?.id?.toString() } };
+//   });
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const id = context.params.id;
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
   const data = await res.json();
