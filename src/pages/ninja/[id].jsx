@@ -1,8 +1,6 @@
 import styles from "@/styles/page.module.css";
 import Head from "next/head";
 import Link from "next/link";
-
-import awaitSleep from "await-sleep";
 import { Suspense } from "react";
 const NinjaDetails = ({ ninja }) => {
   return (
