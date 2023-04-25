@@ -1,6 +1,9 @@
 import styles from "@/styles/page.module.css";
 import Head from "next/head";
 import Link from "next/link";
+
+import awaitSleep from "await-sleep";
+import { Suspense } from "react";
 const NinjaDetails = ({ ninja }) => {
   return (
     <>
@@ -19,15 +22,17 @@ const NinjaDetails = ({ ninja }) => {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Next app" />
       </Head>
-      <div>
-        <h1 className={styles.title}>Ninja Details</h1>
-        <Link href="/ninja">Back to Ninja page</Link>
+      <Suspense fallback={<div>Loading</div>}>
+        <div>
+          <h1 className={styles.title}>Ninja Details</h1>
+          <Link href="/ninja">Back to Ninja page</Link>
 
-        <h2>Name: {ninja.name}</h2>
-        <p>Email: {ninja.email}</p>
-        <p>Website: {ninja.website}</p>
-        <p>Address: {ninja.address.city}</p>
-      </div>
+          <h2>Name: {ninja.name}</h2>
+          <p>Email: {ninja.email}</p>
+          <p>Website: {ninja.website}</p>
+          <p>Address: {ninja.address.city}</p>
+        </div>
+      </Suspense>
     </>
   );
 };
