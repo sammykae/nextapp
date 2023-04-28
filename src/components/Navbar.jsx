@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import DarkMode from "./DarkMode";
 const Navbar = () => {
   const router = useRouter();
   return (
@@ -30,6 +31,7 @@ const Navbar = () => {
           Ninja
         </Link>
       </div>
+      <DarkMode />
     </nav>
   );
 };

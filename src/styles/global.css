@@ -1,5 +1,30 @@
+:root {
+  --body_backgorund: whitesmoke;
+  --body_color: black;
+  --link_color: coral;
+  --link_active_color: red;
+  --hr_border_color: #ddd;
+  --button_color: #4979ff;
+  --title_color: #333;
+  --text_color: #777;
+  --card_color: #fff;
+}
+[data-theme="dark"] {
+  --body_backgorund: #2e2e48;
+  --body_color: white;
+  --link_color: white;
+  --link_active_color: red;
+  --hr_border_color: #dbd5d5;
+  --button_color: #4979ff;
+  --title_color: #fff;
+  --text_color: whitesmoke;
+  --card_color: #564a49;
+}
+* {
+  transition: all 0.2s ease-in-out;
+}
 body {
-  background-color: whitesmoke;
+  background-color: var(--body_backgorund);
   width: 70%;
   margin: auto;
 }
@@ -9,7 +34,7 @@ body {
   padding: 10px 50px;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--hr_border_color);
 }
 .logo {
   margin-right: auto;
@@ -21,22 +46,23 @@ body {
 .link {
   text-decoration: none;
   font-size: 20px;
-  color: coral;
+  color: var(--link_color);
 }
 .active {
-  color: rgb(244, 0, 0);
+  color: var(--link_active_color);
 }
 .footer {
   display: block;
   text-align: center;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--hr_border_color);
   margin-top: 30px;
+  color: var(--body_color);
 }
 .not-found {
   text-align: center;
 }
 .back-home {
-  color: #4979ff;
+  color: var(--button_color);
 }
 /* NPROGRESS STYLE START */
 /* Make clicks pass-through */
@@ -45,7 +71,7 @@ body {
 }
 
 #nprogress .bar {
-  background: red;
+  background: var(--link_active_color);
 
   position: fixed;
   z-index: 1031;
@@ -63,7 +89,8 @@ body {
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px red, 0 0 5px red;
+  box-shadow: 0 0 10px var(--link_active_color),
+    0 0 5px var(--link_active_color);
   opacity: 1;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -86,8 +113,8 @@ body {
   box-sizing: border-box;
 
   border: solid 2px transparent;
-  border-top-color: red;
-  border-left-color: red;
+  border-top-color: var(--link_active_color);
+  border-left-color: var(--link_active_color);
   border-radius: 50%;
 
   -webkit-animation: nprogress-spinner 400ms linear infinite;
@@ -121,3 +148,26 @@ body {
   }
 }
 /* NPROGRESS STYLE STOP */
+@media only screen and (max-width: 700px) {
+  body {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    width: 95%;
+  }
+  .navbar {
+    justify-content: space-between;
+  }
+  .logo {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .navbar {
+    flex-direction: column;
+  }
+}

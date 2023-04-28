@@ -1,19 +1,22 @@
 .title {
-  color: #333;
+  color: var(--title_color);
   padding-bottom: 20px;
   text-align: center;
 }
 .text {
-  color: #777;
+  color: var(--text_color);
 }
 .btn {
   display: block;
   width: 150px;
   padding: 8px 0;
   margin: 20px auto;
-  background-color: #4979ff;
+  background-color: var(--button_color);
   border-radius: 5px;
   color: #fff;
   text-align: center;
   text-decoration: none;
+}
+.body {
+  color: var(--text_color);
 }

@@ -1,5 +1,5 @@
 .single {
-  background-color: #fff;
+  background-color: var(--card_color);
   padding: 1px 16px;
   display: block;
   margin: 10px;
@@ -7,9 +7,9 @@
   border-left: 8px solid transparent;
   cursor: pointer;
   text-decoration: none;
-  color: #000;
+  color: var(--text_color);
 }
 .single:hover {
-  border-left: 8px solid #4979ff;
-  border-right: 8px solid #4979ff;
+  border-left: 8px solid var(--button_color);
+  border-right: 8px solid var(--button_color);
 }

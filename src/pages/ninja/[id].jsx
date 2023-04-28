@@ -23,12 +23,15 @@ const NinjaDetails = ({ ninja }) => {
       <Suspense fallback={<div>Loading</div>}>
         <div>
           <h1 className={styles.title}>Ninja Details</h1>
-          <Link href="/ninja">Back to Ninja page</Link>
-
-          <h2>Name: {ninja.name}</h2>
-          <p>Email: {ninja.email}</p>
-          <p>Website: {ninja.website}</p>
-          <p>Address: {ninja.address.city}</p>
+          <Link className={styles.btn} href="/ninja">
+            Back to Ninja page
+          </Link>
+          <div className={styles.body}>
+            <h2>Name: {ninja.name}</h2>
+            <p>Email: {ninja.email}</p>
+            <p>Website: {ninja.website}</p>
+            <p>Address: {ninja.address.city}</p>
+          </div>
         </div>
       </Suspense>
     </>
